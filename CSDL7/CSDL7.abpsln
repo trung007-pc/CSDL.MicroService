@@ -1,0 +1,96 @@
+{
+  "id": "59422d1f-2fa3-40b3-b82a-4b2bce14a48e",
+  "template": "microservice",
+  "versions": {
+    "LeptonX": "4.3.5",
+    "AbpFramework": "9.3.5",
+    "AbpCommercial": "9.3.5",
+    "AbpStudio": "1.4.0",
+    "TargetDotnetFramework": "net9.0"
+  },
+  "folders": {
+    "items": {
+      "services": {},
+      "apps": {},
+      "gateways": {},
+
+    }
+  },
+  "defaultRunProfile": "Default",
+  "runProfiles": {
+    "Default": {
+      "path": "etc/abp-studio/run-profiles/Default.abprun.json"
+    },
+  },
+  "modules": {
+    "CSDL7.AdministrationService": {
+      "path": "services/administration/CSDL7.AdministrationService.abpmdl",
+      "folder": "services"
+    },
+    "CSDL7.IdentityService": {
+      "path": "services/identity/CSDL7.IdentityService.abpmdl",
+      "folder": "services"
+    },
+    "CSDL7.SaasService": {
+      "path": "services/saas/CSDL7.SaasService.abpmdl",
+      "folder": "services"
+    },
+    "CSDL7.AuditLoggingService": {
+      "path": "services/audit-logging/CSDL7.AuditLoggingService.abpmdl",
+      "folder": "services"
+    },
+    "CSDL7.GdprService": {
+      "path": "services/gdpr/CSDL7.GdprService.abpmdl",
+      "folder": "services"
+    },
+    "CSDL7.LanguageService": {
+      "path": "services/language/CSDL7.LanguageService.abpmdl",
+      "folder": "services"
+    },
+    "CSDL7.Blazor": {
+      "path": "apps/blazor/CSDL7.Blazor.abpmdl",
+      "folder": "apps"
+    },
+    "CSDL7.AuthServer": {
+      "path": "apps/auth-server/CSDL7.AuthServer.abpmdl",
+      "folder": "apps"
+    },
+    "CSDL7.WebGateway": {
+      "path": "gateways/web/CSDL7.WebGateway.abpmdl",
+      "folder": "gateways"
+    },
+  },
+  "options": {
+    "httpRequests": {
+      "ignoredUrls": [
+      
+      ]
+    }
+  },
+  "creatingStudioConfiguration": {
+    "template": "microservice",
+    "createdAbpStudioVersion": "1.4.0",
+    "uiFramework": "blazor-server",
+    "runInstallLibs": "true",
+    "useLocalReferences": "false",
+    "multiTenancy": "true",
+    "includeTests": "true",
+    "dynamicLocalization": "true",
+    "kubernetesConfiguration": "false",
+    "grafanaDashboard": "false",
+    "databaseProvider": "ef",
+    "databaseManagementSystem": "postgresql",
+    "theme": "leptonx",
+    "themeStyle": "system",
+    "themeMenuPlacement": "side",
+    "mobileFramework": "none",
+    "publicWebsite": "false",
+    "optionalModules": "GDPR TextTemplateManagement AuditLogging OpenIddictAdmin",
+    "socialLogin": "false",
+    "selectedLanguages": ["English", "Arabic", "Chinese (Simplified)", "Chinese (Traditional)", "Czech", "English (United Kingdom)", "Finnish", "French", "German (Germany)", "Hindi ", "Hungarian", "Icelandic", "Italian", "Portuguese (Brazil)", "Romanian (Romania)", "Russian", "Slovak", "Spanish", "Swedish", "Turkish", ],
+    "aspire": "false",
+    "defaultLanguage": "English",
+    "createCommand": "abp new CSDL7 -t microservice --ui-framework blazor-server --database-provider ef --database-management-system postgresql --theme leptonx --skip-migrator  --without-cms-kit --dont-run-bundling --no-social-logins -no-file-management -no-language-management"
+   
+  }
+}

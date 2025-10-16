@@ -1,0 +1,14 @@
+networks:
+  csdl7:
+    external: true
+
+services:
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:10.2.0
+    volumes:
+      - ./grafana/storage:/var/lib/grafana
+    networks:
+      - csdl7
+    ports:
+      - "3001:3000"

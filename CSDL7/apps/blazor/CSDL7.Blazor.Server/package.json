@@ -1,0 +1,15 @@
+{
+  "version": "0.1.0",
+  "name": "CSDL7BlazorServer",
+  "private": true,
+  "dependencies": {
+    "@volo/abp.aspnetcore.mvc.ui.theme.leptonx": "~4.3.5",
+    "@volo/aspnetcore.components.server.leptonxtheme": "~4.3.5",
+    "@volo/saas": "~9.3.5",
+    "@volo/audit-logging": "~9.3.5",
+"@volo/language-management": "~9.3.5",
+    "@volo/identity": "~9.3.5",
+    "@abp/chart.js": "~9.3.5",
+    "@volo/account": "~9.3.5"
+  }
+}

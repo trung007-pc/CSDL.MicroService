@@ -1,0 +1,69 @@
+{
+  "packages": {
+    "CSDL7.Blazor.Server": {
+      "path": "CSDL7.Blazor.Server/CSDL7.Blazor.Server.abppkg",
+    }
+  },
+  "imports": {
+     "Volo.Abp.LeptonXTheme": {
+        "version": "4.3.5",
+        "isInstalled": true
+     },
+    "Volo.Abp.Account.Pro": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.Gdpr": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "CSDL7.GdprService": {
+      "path": "../../services/gdpr/CSDL7.GdprService.abpmdl",
+      "isInstalled": true
+    },
+    "Volo.Abp.AuditLogging.Pro": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "CSDL7.AuditLoggingService": {
+      "path": "../../services/audit-logging/CSDL7.AuditLoggingService.abpmdl",
+      "isInstalled": true
+    },
+    "Volo.Saas": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "CSDL7.SaasService": {
+      "path": "../../services/saas/CSDL7.SaasService.abpmdl",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "CSDL7.LanguageService": {
+      "path": "../../services/language/CSDL7.LanguageService.abpmdl",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict.Pro": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.Identity.Pro": {
+      "version": "9.3.5",
+      "isInstalled": true
+    }
+  }
+}

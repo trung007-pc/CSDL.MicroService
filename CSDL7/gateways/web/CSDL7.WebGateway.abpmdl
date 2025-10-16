@@ -1,0 +1,7 @@
+{
+  "packages": {
+    "CSDL7.WebGateway": {
+      "path": "CSDL7.WebGateway/CSDL7.WebGateway.abppkg"
+    }
+  }
+}

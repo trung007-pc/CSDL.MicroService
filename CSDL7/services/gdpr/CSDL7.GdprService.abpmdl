@@ -1,0 +1,43 @@
+{
+  "packages": {
+    "CSDL7.GdprService": {
+      "path": "CSDL7.GdprService/CSDL7.GdprService.abppkg"
+    },
+    "CSDL7.GdprService.Contracts": {
+      "path": "CSDL7.GdprService.Contracts/CSDL7.GdprService.Contracts.abppkg"
+    },
+    "CSDL7.GdprService.Tests": {
+      "path": "CSDL7.GdprService.Tests/CSDL7.GdprService.Tests.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Saas": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.Gdpr": {
+      "version": "9.3.5",
+      "isInstalled": true
+    }
+  }
+}

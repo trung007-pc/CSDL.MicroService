@@ -1,0 +1,55 @@
+{
+  "packages": {
+    "CSDL7.AdministrationService": {
+      "path": "CSDL7.AdministrationService/CSDL7.AdministrationService.abppkg"
+    },
+    "CSDL7.AdministrationService.Contracts": {
+      "path": "CSDL7.AdministrationService.Contracts/CSDL7.AdministrationService.Contracts.abppkg"
+    },
+    "CSDL7.AdministrationService.Tests": {
+      "path": "CSDL7.AdministrationService.Tests/CSDL7.AdministrationService.Tests.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict.Pro": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.TextTemplateManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.Identity": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Saas": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    }
+  }
+}

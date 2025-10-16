@@ -1,0 +1,59 @@
+{
+  "packages": {
+    "CSDL7.IdentityService": {
+      "path": "CSDL7.IdentityService/CSDL7.IdentityService.abppkg"
+    },
+    "CSDL7.IdentityService.Contracts": {
+      "path": "CSDL7.IdentityService.Contracts/CSDL7.IdentityService.Contracts.abppkg"
+    },
+    "CSDL7.IdentityService.Tests": {
+      "path": "CSDL7.IdentityService.Tests/CSDL7.IdentityService.Tests.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.Identity.Pro": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict.Pro": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.Identity": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Saas": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.OpenIddict.Pro": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    }
+  }
+}

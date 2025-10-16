@@ -1,0 +1,39 @@
+{
+  "packages": {
+    "CSDL7.SaasService": {
+      "path": "CSDL7.SaasService/CSDL7.SaasService.abppkg"
+    },
+    "CSDL7.SaasService.Contracts": {
+      "path": "CSDL7.SaasService.Contracts/CSDL7.SaasService.Contracts.abppkg"
+    },
+    "CSDL7.SaasService.Tests": {
+      "path": "CSDL7.SaasService.Tests/CSDL7.SaasService.Tests.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Saas": {
+      "version": "9.3.5",
+      "isInstalled": true
+    }
+  }
+}

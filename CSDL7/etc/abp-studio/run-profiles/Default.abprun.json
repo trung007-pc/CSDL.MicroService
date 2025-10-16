@@ -1,0 +1,181 @@
+{
+  "folders": {
+    "items": {
+      "services": {
+        "execution": {
+          "order": 2
+        }
+      },
+      "apps": {
+        "execution": {
+          "order": 0
+        }
+      },
+      "gateways": {
+        "execution": {
+          "order": 1
+        }
+      }
+    }
+  },
+  "applications": {
+    "CSDL7.AuthServer": {
+      "type": "dotnet-project",
+      "path": "../../../apps/auth-server/CSDL7.AuthServer/CSDL7.AuthServer.csproj",
+      "launchUrl": "http://localhost:44315",
+      "kubernetesService": ".*-authserver$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "apps",
+      "execution": {
+        "order": 3
+      }
+    },
+    "CSDL7.SaasService": {
+      "type": "dotnet-project",
+      "path": "../../../services/saas/CSDL7.SaasService/CSDL7.SaasService.csproj",
+      "launchUrl": "http://localhost:44332",
+      "folder": "services",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "kubernetesService": ".*-saas$",
+      "execution": {
+        "order": 4
+      }
+    },
+    "CSDL7.AuditLoggingService": {
+      "type": "dotnet-project",
+      "path": "../../../services/audit-logging/CSDL7.AuditLoggingService/CSDL7.AuditLoggingService.csproj",
+      "launchUrl": "http://localhost:44333",
+      "folder": "services",
+      "kubernetesService": ".*-auditlogging$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 0
+      }
+    },
+    "CSDL7.GdprService": {
+      "type": "dotnet-project",
+      "path": "../../../services/gdpr/CSDL7.GdprService/CSDL7.GdprService.csproj",
+      "launchUrl": "http://localhost:44368",
+      "folder": "services",
+      "kubernetesService": ".*-gdpr$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 1
+      }
+    },
+    "CSDL7.LanguageService": {
+      "type": "dotnet-project",
+      "path": "../../../services/language/CSDL7.LanguageService/CSDL7.LanguageService.csproj",
+      "launchUrl": "http://localhost:44321",
+      "folder": "services",
+      "kubernetesService": ".*-language",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "execution": {
+        "order": 3
+      }
+    },
+    "CSDL7.WebGateway": {
+      "type": "dotnet-project",
+      "path": "../../../gateways/web/CSDL7.WebGateway/CSDL7.WebGateway.csproj",
+      "launchUrl": "http://localhost:44390",
+      "kubernetesService": ".*-webgateway$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "gateways",
+      "execution": {
+        "order": 2
+      }
+    },
+    "CSDL7.Blazor.Server": {
+      "type": "dotnet-project",
+      "launchUrl": "http://localhost:44330",
+      "path": "../../../apps/blazor/CSDL7.Blazor.Server/CSDL7.Blazor.Server.csproj",
+      "kubernetesService": ".*-blazor-server$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "apps",
+      "execution": {
+        "order": 2
+      }
+    },
+    "CSDL7.AdministrationService": {
+      "type": "dotnet-project",
+      "path": "../../../services/administration/CSDL7.AdministrationService/CSDL7.AdministrationService.csproj",
+      "launchUrl": "http://localhost:44385",
+      "kubernetesService": ".*-administration$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "services",
+      "execution": {
+        "order": 6
+      }
+    },
+    "CSDL7.IdentityService": {
+      "type": "dotnet-project",
+      "path": "../../../services/identity/CSDL7.IdentityService/CSDL7.IdentityService.csproj",
+      "launchUrl": "http://localhost:44320",
+      "kubernetesService": ".*-identity$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "services",
+      "execution": {
+        "order": 5
+      }
+    }
+  },
+  "containers":{
+    "serviceName": "CSDL7-Containers",
+    "files": {
+      "../../docker/containers/elasticsearch.yml": {
+      },
+      "../../docker/containers/grafana.yml": {
+      },
+      "../../docker/containers/kibana.yml": {
+      },
+    "../../docker/containers/postgresql.yml": {
+    },
+      "../../docker/containers/prometheus.yml": {
+      },
+      "../../docker/containers/rabbitmq.yml": {
+      },
+      "../../docker/containers/redis.yml": {
+      }
+    }
+  },
+  "tools": {
+    "grafana": {
+      "url": "http://localhost:3001",
+      "relatedContainer": "grafana",
+      "relatedKubernetesService": ".*-grafana$"
+    },
+    "kibana": {
+      "url": "http://localhost:5601",
+      "relatedContainer": "kibana",
+      "relatedKubernetesService": ".*-kibana$"
+    },
+    "prometheus": {
+      "url": "http://localhost:9090",
+      "relatedContainer": "prometheus",
+      "relatedKubernetesService": ".*-prometheus$"
+    },
+    "rabbitmq": {
+      "url": "http://localhost:15672",
+      "relatedContainer": "rabbitmq",
+      "relatedKubernetesService": ".*-rabbitmq$",
+      "relatedKubernetesServicePort": 15672
+    }
+  }, 
+  "tasks": {
+      "Initialize Solution":{
+      "type": "cli",
+      "runOnSolutionOpen": true,
+      "startCommand": "etc/scripts/initialize-solution.ps1",
+      "workingDirectory": "../../../"
+      }
+    }
+}
