@@ -1,0 +1,35 @@
+{
+  "packages": {
+    "CSDL7.MasterService": {
+      "path": "CSDL7.MasterService/CSDL7.MasterService.abppkg"
+    },
+    "CSDL7.MasterService.Tests": {
+      "path": "CSDL7.MasterService.Tests/CSDL7.MasterService.Tests.abppkg"
+    },
+    "CSDL7.MasterService.Contracts": {
+      "path": "CSDL7.MasterService.Contracts/CSDL7.MasterService.Contracts.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    }
+  }
+}

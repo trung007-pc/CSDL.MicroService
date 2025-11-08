@@ -1,0 +1,1855 @@
+{
+  "modules": {
+    "master": {
+      "rootPath": "master",
+      "remoteServiceName": "MasterService",
+      "controllers": {
+        "CSDL7.MasterService.Controllers.DemoController": {
+          "controllerName": "Demo",
+          "controllerGroupName": "Demo",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "CSDL7.MasterService.Controllers.DemoController",
+          "interfaces": [],
+          "actions": {
+            "HelloWorld": {
+              "uniqueName": "HelloWorld",
+              "name": "HelloWorld",
+              "httpMethod": "GET",
+              "url": "api/master/demo/hello",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "CSDL7.MasterService.Controllers.DemoController"
+            },
+            "HelloWorldAuthorized": {
+              "uniqueName": "HelloWorldAuthorized",
+              "name": "HelloWorldAuthorized",
+              "httpMethod": "GET",
+              "url": "api/master/demo/hello-authorized",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.String",
+                "typeSimple": "string"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Controllers.DemoController"
+            }
+          }
+        },
+        "CSDL7.MasterService.Services.Departments.DepartmentsAppService": {
+          "controllerName": "Departments",
+          "controllerGroupName": "Departments",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "CSDL7.MasterService.Services.Departments.DepartmentsAppService",
+          "interfaces": [
+            {
+              "type": "CSDL7.MasterService.Services.Departments.IDepartmentsAppService",
+              "name": "IDepartmentsAppService",
+              "methods": [
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Dtos.Departments.GetDepartmentsInput, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Dtos.Departments.GetDepartmentsInput",
+                      "typeSimple": "CSDL7.MasterService.Services.Dtos.Departments.GetDepartmentsInput",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto>"
+                  }
+                },
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Departments.CreateDepartmentDto, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Departments.CreateDepartmentDto",
+                      "typeSimple": "CSDL7.MasterService.Services.Departments.CreateDepartmentDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto"
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Dtos.Departments.UpdateDepartmentDto, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Dtos.Departments.UpdateDepartmentDto",
+                      "typeSimple": "CSDL7.MasterService.Services.Dtos.Departments.UpdateDepartmentDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto"
+                  }
+                },
+                {
+                  "name": "CallPingEmailAsync",
+                  "parametersOnMethod": [],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/master/departments",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Dtos.Departments.GetDepartmentsInput, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Dtos.Departments.GetDepartmentsInput",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Departments.GetDepartmentsInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "FilterText",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Departments.IDepartmentsAppService"
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/master/departments/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Departments.IDepartmentsAppService"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/master/departments/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Departments.IDepartmentsAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/master/departments",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Departments.CreateDepartmentDto, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Departments.CreateDepartmentDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Departments.CreateDepartmentDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "CSDL7.MasterService.Services.Departments.CreateDepartmentDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Departments.CreateDepartmentDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Departments.IDepartmentsAppService"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/master/departments/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Dtos.Departments.UpdateDepartmentDto, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Dtos.Departments.UpdateDepartmentDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Departments.UpdateDepartmentDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "CSDL7.MasterService.Services.Dtos.Departments.UpdateDepartmentDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Departments.UpdateDepartmentDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Departments.DepartmentDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Departments.IDepartmentsAppService"
+            },
+            "CallPingEmailAsync": {
+              "uniqueName": "CallPingEmailAsync",
+              "name": "CallPingEmailAsync",
+              "httpMethod": "POST",
+              "url": "api/master/departments/call-ping-email",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Departments.IDepartmentsAppService"
+            }
+          }
+        },
+        "CSDL7.MasterService.Services.Districts.DistrictsAppService": {
+          "controllerName": "Districts",
+          "controllerGroupName": "Districts",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "CSDL7.MasterService.Services.Districts.DistrictsAppService",
+          "interfaces": [
+            {
+              "type": "CSDL7.MasterService.Services.Districts.IDistrictsAppService",
+              "name": "IDistrictsAppService",
+              "methods": [
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Dtos.Districts.GetDistrictsInput, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Dtos.Districts.GetDistrictsInput",
+                      "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.GetDistrictsInput",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Districts.DistrictWithNavigationPropertiesDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Districts.DistrictWithNavigationPropertiesDto>"
+                  }
+                },
+                {
+                  "name": "GetWithNavigationPropertiesAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictWithNavigationPropertiesDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictWithNavigationPropertiesDto"
+                  }
+                },
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictDto"
+                  }
+                },
+                {
+                  "name": "GetProvinceLookupAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Dtos.Shared.LookupRequestDto, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Dtos.Shared.LookupRequestDto",
+                      "typeSimple": "CSDL7.MasterService.Services.Dtos.Shared.LookupRequestDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Shared.LookupDto<System.Guid>>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Shared.LookupDto<string>>"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Dtos.Districts.DistrictCreateDto, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictCreateDto",
+                      "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictCreateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictDto"
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Dtos.Districts.DistrictUpdateDto, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictUpdateDto",
+                      "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictUpdateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictDto"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/master/districts",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Dtos.Districts.GetDistrictsInput, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Dtos.Districts.GetDistrictsInput",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.GetDistrictsInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "FilterText",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Code",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ProvinceId",
+                  "jsonName": null,
+                  "type": "System.Guid?",
+                  "typeSimple": "string?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Districts.DistrictWithNavigationPropertiesDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Districts.DistrictWithNavigationPropertiesDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Districts.IDistrictsAppService"
+            },
+            "GetWithNavigationPropertiesAsyncById": {
+              "uniqueName": "GetWithNavigationPropertiesAsyncById",
+              "name": "GetWithNavigationPropertiesAsync",
+              "httpMethod": "GET",
+              "url": "api/master/districts/{id}/with-navigation-properties",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictWithNavigationPropertiesDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictWithNavigationPropertiesDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Districts.IDistrictsAppService"
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/master/districts/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Districts.IDistrictsAppService"
+            },
+            "GetProvinceLookupAsyncByInput": {
+              "uniqueName": "GetProvinceLookupAsyncByInput",
+              "name": "GetProvinceLookupAsync",
+              "httpMethod": "GET",
+              "url": "api/master/districts/province-lookup",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Dtos.Shared.LookupRequestDto, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Dtos.Shared.LookupRequestDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Shared.LookupRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Filter",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Shared.LookupDto<System.Guid>>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Shared.LookupDto<string>>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Districts.IDistrictsAppService"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/master/districts/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Districts.IDistrictsAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/master/districts",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Dtos.Districts.DistrictCreateDto, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictCreateDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictCreateDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Districts.IDistrictsAppService"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/master/districts/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Dtos.Districts.DistrictUpdateDto, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictUpdateDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictUpdateDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Districts.DistrictDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Districts.DistrictDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Districts.IDistrictsAppService"
+            }
+          }
+        },
+        "CSDL7.MasterService.Services.Provinces.ProvincesAppService": {
+          "controllerName": "Provinces",
+          "controllerGroupName": "Provinces",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "CSDL7.MasterService.Services.Provinces.ProvincesAppService",
+          "interfaces": [
+            {
+              "type": "CSDL7.MasterService.Services.Provinces.IProvincesAppService",
+              "name": "IProvincesAppService",
+              "methods": [
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Dtos.Provinces.GetProvincesInput, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Dtos.Provinces.GetProvincesInput",
+                      "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.GetProvincesInput",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto>"
+                  }
+                },
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceCreateDto, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceCreateDto",
+                      "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceCreateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto"
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceUpdateDto, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceUpdateDto",
+                      "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceUpdateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/master/provinces",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Dtos.Provinces.GetProvincesInput, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Dtos.Provinces.GetProvincesInput",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.GetProvincesInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "FilterText",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "ProvinceCode",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Provinces.IProvincesAppService"
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/master/provinces/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Provinces.IProvincesAppService"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/master/provinces/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Provinces.IProvincesAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/master/provinces",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceCreateDto, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceCreateDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceCreateDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Provinces.IProvincesAppService"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/master/provinces/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceUpdateDto, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceUpdateDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceUpdateDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Provinces.ProvinceDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Provinces.IProvincesAppService"
+            }
+          }
+        },
+        "CSDL7.MasterService.Services.Wards.WardsAppService": {
+          "controllerName": "Wards",
+          "controllerGroupName": "Wards",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "CSDL7.MasterService.Services.Wards.WardsAppService",
+          "interfaces": [
+            {
+              "type": "CSDL7.MasterService.Services.Wards.IWardsAppService",
+              "name": "IWardsAppService",
+              "methods": [
+                {
+                  "name": "GetListAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Dtos.Wards.GetWardsInput, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Dtos.Wards.GetWardsInput",
+                      "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.GetWardsInput",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Wards.WardWithNavigationPropertiesDto>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Wards.WardWithNavigationPropertiesDto>"
+                  }
+                },
+                {
+                  "name": "GetWithNavigationPropertiesAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Wards.WardWithNavigationPropertiesDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardWithNavigationPropertiesDto"
+                  }
+                },
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Wards.WardDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardDto"
+                  }
+                },
+                {
+                  "name": "GetDistrictLookupAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Dtos.Shared.LookupRequestDto, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Dtos.Shared.LookupRequestDto",
+                      "typeSimple": "CSDL7.MasterService.Services.Dtos.Shared.LookupRequestDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Shared.LookupDto<System.Guid>>",
+                    "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Shared.LookupDto<string>>"
+                  }
+                },
+                {
+                  "name": "DeleteAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "CreateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Dtos.Wards.WardCreateDto, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Dtos.Wards.WardCreateDto",
+                      "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardCreateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Wards.WardDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardDto"
+                  }
+                },
+                {
+                  "name": "UpdateAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    },
+                    {
+                      "name": "input",
+                      "typeAsString": "CSDL7.MasterService.Services.Dtos.Wards.WardUpdateDto, CSDL7.MasterService.Contracts",
+                      "type": "CSDL7.MasterService.Services.Dtos.Wards.WardUpdateDto",
+                      "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardUpdateDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "CSDL7.MasterService.Services.Dtos.Wards.WardDto",
+                    "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardDto"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "GetListAsyncByInput": {
+              "uniqueName": "GetListAsyncByInput",
+              "name": "GetListAsync",
+              "httpMethod": "GET",
+              "url": "api/master/wards",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Dtos.Wards.GetWardsInput, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Dtos.Wards.GetWardsInput",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.GetWardsInput",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "FilterText",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Code",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "DistrictId",
+                  "jsonName": null,
+                  "type": "System.Guid?",
+                  "typeSimple": "string?",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "Sorting",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Wards.WardWithNavigationPropertiesDto>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Wards.WardWithNavigationPropertiesDto>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Wards.IWardsAppService"
+            },
+            "GetWithNavigationPropertiesAsyncById": {
+              "uniqueName": "GetWithNavigationPropertiesAsyncById",
+              "name": "GetWithNavigationPropertiesAsync",
+              "httpMethod": "GET",
+              "url": "api/master/wards/{id}/with-navigation-properties",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Wards.WardWithNavigationPropertiesDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardWithNavigationPropertiesDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Wards.IWardsAppService"
+            },
+            "GetAsyncById": {
+              "uniqueName": "GetAsyncById",
+              "name": "GetAsync",
+              "httpMethod": "GET",
+              "url": "api/master/wards/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Wards.WardDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Wards.IWardsAppService"
+            },
+            "GetDistrictLookupAsyncByInput": {
+              "uniqueName": "GetDistrictLookupAsyncByInput",
+              "name": "GetDistrictLookupAsync",
+              "httpMethod": "GET",
+              "url": "api/master/wards/district-lookup",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Dtos.Shared.LookupRequestDto, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Dtos.Shared.LookupRequestDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Shared.LookupRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "Filter",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "SkipCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "MaxResultCount",
+                  "jsonName": null,
+                  "type": "System.Int32",
+                  "typeSimple": "number",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "input"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Shared.LookupDto<System.Guid>>",
+                "typeSimple": "Volo.Abp.Application.Dtos.PagedResultDto<CSDL7.MasterService.Services.Dtos.Shared.LookupDto<string>>"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Wards.IWardsAppService"
+            },
+            "DeleteAsyncById": {
+              "uniqueName": "DeleteAsyncById",
+              "name": "DeleteAsync",
+              "httpMethod": "DELETE",
+              "url": "api/master/wards/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Wards.IWardsAppService"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/master/wards",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Dtos.Wards.WardCreateDto, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Dtos.Wards.WardCreateDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "CSDL7.MasterService.Services.Dtos.Wards.WardCreateDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardCreateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Wards.WardDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Wards.IWardsAppService"
+            },
+            "UpdateAsyncByIdAndInput": {
+              "uniqueName": "UpdateAsyncByIdAndInput",
+              "name": "UpdateAsync",
+              "httpMethod": "PUT",
+              "url": "api/master/wards/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                },
+                {
+                  "name": "input",
+                  "typeAsString": "CSDL7.MasterService.Services.Dtos.Wards.WardUpdateDto, CSDL7.MasterService.Contracts",
+                  "type": "CSDL7.MasterService.Services.Dtos.Wards.WardUpdateDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                },
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "CSDL7.MasterService.Services.Dtos.Wards.WardUpdateDto",
+                  "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardUpdateDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "CSDL7.MasterService.Services.Dtos.Wards.WardDto",
+                "typeSimple": "CSDL7.MasterService.Services.Dtos.Wards.WardDto"
+              },
+              "allowAnonymous": false,
+              "implementFrom": "CSDL7.MasterService.Services.Wards.IWardsAppService"
+            }
+          }
+        }
+      }
+    }
+  },
+  "types": {}
+}

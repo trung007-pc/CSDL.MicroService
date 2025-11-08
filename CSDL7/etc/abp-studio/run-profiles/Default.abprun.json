@@ -126,25 +126,38 @@
       "execution": {
         "order": 5
       }
+    },
+    "CSDL7.MasterService": {
+      "type": "dotnet-project",
+      "path": "../../../services/master/CSDL7.MasterService/CSDL7.MasterService.csproj",
+      "launchUrl": "http://localhost:44346",
+      "kubernetesService": ".*-master$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "services",
+      "runnable": true
+    },
+    "CSDL7.EmailService": {
+      "type": "dotnet-project",
+      "path": "../../../services/email/CSDL7.EmailService/CSDL7.EmailService.csproj",
+      "launchUrl": "http://localhost:44328",
+      "kubernetesService": ".*-email$",
+      "healthCheckEndpoint": "/health-status",
+      "healthUiEndpoint": "/health-ui",
+      "folder": "services",
+      "runnable": true
     }
   },
-  "containers":{
+  "containers": {
     "serviceName": "CSDL7-Containers",
     "files": {
-      "../../docker/containers/elasticsearch.yml": {
-      },
-      "../../docker/containers/grafana.yml": {
-      },
-      "../../docker/containers/kibana.yml": {
-      },
-    "../../docker/containers/postgresql.yml": {
-    },
-      "../../docker/containers/prometheus.yml": {
-      },
-      "../../docker/containers/rabbitmq.yml": {
-      },
-      "../../docker/containers/redis.yml": {
-      }
+      "../../docker/containers/elasticsearch.yml": {},
+      "../../docker/containers/grafana.yml": {},
+      "../../docker/containers/kibana.yml": {},
+      "../../docker/containers/postgresql.yml": {},
+      "../../docker/containers/prometheus.yml": {},
+      "../../docker/containers/rabbitmq.yml": {},
+      "../../docker/containers/redis.yml": {}
     }
   },
   "tools": {
@@ -169,13 +182,13 @@
       "relatedKubernetesService": ".*-rabbitmq$",
       "relatedKubernetesServicePort": 15672
     }
-  }, 
+  },
   "tasks": {
-      "Initialize Solution":{
+    "Initialize Solution": {
       "type": "cli",
       "runOnSolutionOpen": true,
       "startCommand": "etc/scripts/initialize-solution.ps1",
       "workingDirectory": "../../../"
-      }
     }
+  }
 }

@@ -1,5 +1,8 @@
+using CSDL7.EmailService;
+using CSDL7.MasterService;
 using Blazorise;
 using Blazorise.Bootstrap5;
+using Blazorise.FluentValidation;
 using Blazorise.Icons.FontAwesome;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.DataProtection;
@@ -79,10 +82,13 @@ using CSDL7.SaasService;
 using CSDL7.IdentityService;
 using CSDL7.AdministrationService;
 using CSDL7.Blazor.Server.HealthChecks;
+using FluentValidation;
 
 namespace CSDL7.Blazor.Server;
 
 [DependsOn(
+    typeof(CSDL7EmailServiceContractsModule),
+    typeof(CSDL7MasterServiceContractsModule),
     typeof(AbpAccountAdminHttpApiClientModule),
     typeof(AbpAccountAdminBlazorServerModule),
     typeof(SaasHostHttpApiClientModule),
@@ -140,6 +146,10 @@ public class CSDL7BlazorModule : AbpModule
 
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
+        context.Services.AddStaticHttpClientProxies(typeof(CSDL7EmailServiceContractsModule).Assembly);
+
+        context.Services.AddStaticHttpClientProxies(typeof(CSDL7MasterServiceContractsModule).Assembly);
+
         var hostingEnvironment = context.Services.GetHostingEnvironment();
         var configuration = context.Services.GetConfiguration();
         var redis = CreateRedisConnection(configuration);
@@ -397,6 +407,8 @@ public class CSDL7BlazorModule : AbpModule
                 options.Scope.Add("AuthServer");
                 options.Scope.Add("IdentityService");
                 options.Scope.Add("AdministrationService");
+ 				options.Scope.Add("EmailService");
+ 				options.Scope.Add("MasterService");
                 options.Scope.Add("SaasService");
                 options.Scope.Add("AuditLoggingService");
                 options.Scope.Add("GdprService");
@@ -496,7 +508,10 @@ public class CSDL7BlazorModule : AbpModule
                 //options.ProductToken = "Your Product Token";
             })
             .AddBootstrap5Providers()
-            .AddFontAwesomeIcons();
+            .AddFontAwesomeIcons()
+            .AddBlazoriseFluentValidation();
+        
+        context.Services.AddValidatorsFromAssembly( typeof( App ).Assembly );
     }
     
     private void ConfigureAccountLinkUser(IConfiguration configuration)

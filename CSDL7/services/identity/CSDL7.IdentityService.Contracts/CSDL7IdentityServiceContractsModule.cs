@@ -13,6 +13,7 @@ using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Abp.Identity;
 using Volo.Abp.OpenIddict;
+using Volo.Abp.Localization.Resources.AbpLocalization;
 
 namespace CSDL7.IdentityService;
 
@@ -41,6 +42,8 @@ public class CSDL7IdentityServiceContractsModule : AbpModule
                 .Add<IdentityServiceResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource), typeof(AbpUiResource))
                 .AddVirtualJson("/Localization/IdentityService");
+            
+            options.Languages.Add(new LanguageInfo("vi", "vi", "Vietnamese"));
         });
 
         Configure<AbpExceptionLocalizationOptions>(options =>

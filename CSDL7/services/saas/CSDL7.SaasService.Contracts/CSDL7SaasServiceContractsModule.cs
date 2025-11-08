@@ -13,6 +13,7 @@ using Volo.Abp.UI;
 using Volo.Abp.Validation;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.Localization.Resources.AbpLocalization;
 
 namespace CSDL7.SaasService;
 
@@ -41,6 +42,8 @@ public class CSDL7SaasServiceContractsModule : AbpModule
                 .Add<SaasServiceResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource), typeof(AbpUiResource))
                 .AddVirtualJson("/Localization/SaasService");
+            
+            options.Languages.Add(new LanguageInfo("vi", "vi", "Vietnamese"));
         });
 
         Configure<AbpExceptionLocalizationOptions>(options =>

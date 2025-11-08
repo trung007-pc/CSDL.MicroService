@@ -1,0 +1,333 @@
+
+
+@page "/wards"
+
+@attribute [Authorize(MasterServicePermissions.Wards.Default)]
+@using CSDL7.MasterService.Services.Dtos.Wards
+@using CSDL7.MasterService.Services.Wards
+@using CSDL7.MasterService.Localization
+@using CSDL7.MasterService.Services.Dtos.Shared
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Components.Web
+@using Blazorise
+@using Blazorise.Components
+@using Blazorise.DataGrid
+@using Volo.Abp.BlazoriseUI
+@using Volo.Abp.BlazoriseUI.Components
+@using Volo.Abp.ObjectMapping
+@using Volo.Abp.AspNetCore.Components.Messages
+@using Volo.Abp.AspNetCore.Components.Web.Theming.Layout
+
+@using CSDL7.MasterService.Permissions
+@using Volo.Abp.AspNetCore.Components.Web
+@using Volo.Abp.AspNetCore.Components
+
+
+@inherits CSDL7ComponentBase
+@inject IWardsAppService WardsAppService
+
+@inject IUiMessageService UiMessageService
+@inject IStringLocalizer<MasterServiceResource> L
+
+
+
+@* ************************* PAGE HEADER ************************* *@
+<PageHeader Title="@L["Wards"]" BreadcrumbItems="BreadcrumbItems" Toolbar="Toolbar">
+
+</PageHeader>
+
+<style>
+    tr.table-row-selectable:hover {
+        cursor: default;
+    }
+</style>
+
+@* ************************* SEARCH ************************* *@
+<Card>
+    <CardBody>
+
+        <Row>
+            <div class="col col-md-8 col-lg-10">
+                <div class="mb-3">
+                    <Form id="WardSearchForm">
+                        <Addons>
+                            <Addon AddonType="AddonType.Body">
+                                <TextEdit @bind-Text="@Filter.FilterText"
+                                        Autofocus="true"
+                                        Placeholder="@L["Search"]">
+                                </TextEdit>
+                            </Addon>
+                            <Addon AddonType="AddonType.End">
+                                <SubmitButton Form="WardSearchForm" Clicked="GetWardsAsync">
+                                    <Icon Name="IconName.Search" Class="me-1"></Icon>@L["Search"]
+                                </SubmitButton>
+                            </Addon>
+                        </Addons>
+                    </Form>
+                </div>
+            </div>
+                
+                   <div class="col-md-4 col-lg-2">
+            <div class="mb-3">
+               <Button Color="Color.Primary" Outline Style="width:100%" id="AdvancedFilterSectionToggler"
+                         Clicked="@(() => ShowAdvancedFilters = !ShowAdvancedFilters)">@L["Filters"]
+                         <i aria-hidden="true" class="fa ms-1 @(!ShowAdvancedFilters ? "fa-angle-down" : "fa-angle-up")"></i>
+               </Button>
+            </div>
+       </div>
+        
+        <div style="display: @(!ShowAdvancedFilters ? "none" : "block")"  class="mt-3">
+            <Row>
+                <Column ColumnSize="ColumnSize.Is3">
+                    <Field>
+                        <FieldLabel>@L["Name"]</FieldLabel>
+                        <TextEdit Text="@Filter.Name" TextChanged="@OnNameChangedAsync" />                       
+                    </Field>
+                </Column>
+                <Column ColumnSize="ColumnSize.Is3">
+                    <Field>
+                        <FieldLabel>@L["Code"]</FieldLabel>
+                        <TextEdit Text="@Filter.Code" TextChanged="@OnCodeChangedAsync" />                       
+                    </Field>
+                </Column>
+                <Column ColumnSize="ColumnSize.Is3">
+                    <Field>
+                        <FieldLabel>@L["District"]</FieldLabel>
+                        <Select TValue="Guid?"
+		SelectedValue="@Filter.DistrictId"
+		SelectedValueChanged="@OnDistrictIdChangedAsync">
+
+<SelectItem></SelectItem>
+
+@foreach(var item in DistrictsCollection)
+{
+	<SelectItem TValue="Guid" Value="@item.Id">
+		@item.DisplayName
+	</SelectItem>
+}
+
+</Select>                       
+                    </Field>
+                </Column>
+            </Row>
+
+        </div>
+
+        </Row>
+
+
+    </CardBody>
+</Card>
+
+@* ************************* DATA GRID ************************* *@
+<Card>
+    <CardBody>
+        <DataGrid TItem="WardWithNavigationPropertiesDto"
+                  @ref="DataGridRef"
+                  Data="WardList"
+                  
+                  
+                  
+                  ReadData="OnDataGridReadAsync"
+                  TotalItems="TotalCount"
+                  ShowPager="true"
+                  Responsive="true"
+                  PageSize="PageSize"
+                  Class="datagrid-detail">
+            <LoadingTemplate>
+                <Row Class="w-100 align-items-center" Style="height: 150px;">
+                    <Column>
+                       <RadarSpinner />
+                    </Column>
+                </Row>
+            </LoadingTemplate>
+            <EmptyTemplate>
+                <Row Class="w-100 align-items-center" Style="height: 150px;">
+                    <Column>
+                        <Heading Size="HeadingSize.Is4" TextAlignment="TextAlignment.Center">@L["NoDataAvailable"]</Heading>
+                    </Column>
+                </Row>
+            </EmptyTemplate>   
+            <DataGridColumns>
+                
+                
+                <DataGridEntityActionsColumn TItem="WardWithNavigationPropertiesDto" @ref="@EntityActionsColumn">
+                    <DisplayTemplate>
+                        <EntityActions TItem="WardWithNavigationPropertiesDto" EntityActionsColumn="@EntityActionsColumn">
+                            <EntityAction TItem="WardWithNavigationPropertiesDto"
+                                          Visible="@CanEditWard"
+                                          Clicked="async () => await OpenEditWardModalAsync(context)"
+                                          Text="@L["Edit"]"></EntityAction>
+                            <EntityAction TItem="WardWithNavigationPropertiesDto"
+                                          Visible="@CanDeleteWard"
+                                          Clicked="() => DeleteWardAsync(context)"
+                                          ConfirmationMessage="@(()=> L["DeleteConfirmationMessage"])"
+                                          Text="@L["Delete"]"></EntityAction>
+
+                        </EntityActions>
+                    </DisplayTemplate>
+                </DataGridEntityActionsColumn>
+               
+              <DataGridColumn TItem="WardWithNavigationPropertiesDto"
+                      Field="Ward.Name"
+                      Caption="@L["Name"]">
+              </DataGridColumn>
+
+              <DataGridColumn TItem="WardWithNavigationPropertiesDto"
+                      Field="Ward.Code"
+                      Caption="@L["Code"]">
+              </DataGridColumn>
+
+              <DataGridColumn TItem="WardWithNavigationPropertiesDto"
+                      Field="District.Name"
+                      Caption="@L["District"]">
+              </DataGridColumn>
+
+            </DataGridColumns>
+            
+            
+        </DataGrid>
+    </CardBody>
+</Card>
+
+@* ************************* CREATE MODAL ************************* *@
+<Modal @ref="CreateWardModal" Closing="@CreateWardModal.CancelClosingModalWhenFocusLost">
+    <ModalContent Centered="true">
+
+        <Form id="CreateWardForm">
+            <ModalHeader>
+                <ModalTitle>@L["NewWard"]</ModalTitle>
+                <CloseButton Clicked="CloseCreateWardModalAsync" />
+            </ModalHeader>
+            <ModalBody>
+                <Validations @ref="@NewWardValidations"
+                            Mode="ValidationMode.Auto"
+                            Model="@NewWard"
+                            ValidateOnLoad="false">
+                    
+                    
+                    <Validation>
+                        <Field>
+                            <FieldLabel>@L["Name"] *</FieldLabel>
+                            <TextEdit @bind-Text="@NewWard.Name"  >
+                                <Feedback>
+                                    <ValidationError />
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validation>
+
+
+                    <Validation>
+                        <Field>
+                            <FieldLabel>@L["Code"]</FieldLabel>
+                            <TextEdit @bind-Text="@NewWard.Code"  >
+                                <Feedback>
+                                    <ValidationError />
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validation>
+
+
+                    <Field>
+                        <FieldLabel>@L["District"]</FieldLabel>
+                        <Select TValue="Guid" @bind-SelectedValue="@NewWard.DistrictId">
+                            @foreach (var district in DistrictsCollection)
+                            {
+                                <SelectItem TValue="Guid" Value="@(district.Id)">
+                                    @(district.DisplayName)
+                                </SelectItem>
+                            }
+                        </Select>
+                    </Field>
+
+
+                    
+                    
+                </Validations>
+            </ModalBody>
+            <ModalFooter>
+                <Button Color="Color.Secondary"
+                        Clicked="CloseCreateWardModalAsync">
+                    @L["Cancel"]
+                </Button>
+                <SubmitButton Form="CreateWardForm" Clicked="CreateWardAsync"/>
+
+            </ModalFooter>
+        </Form>
+
+    </ModalContent>
+</Modal>
+
+@* ************************* EDIT MODAL ************************* *@
+<Modal @ref="EditWardModal" Closing="@EditWardModal.CancelClosingModalWhenFocusLost">
+    <ModalContent Centered="true">
+
+        <Form id="EditWardForm">
+            <ModalHeader>
+                <ModalTitle>@L["Update"]</ModalTitle>
+                <CloseButton Clicked="CloseEditWardModalAsync" />
+            </ModalHeader>
+            <ModalBody>
+                <Validations @ref="@EditingWardValidations"
+                            Mode="ValidationMode.Auto"
+                            Model="@EditingWard"
+                            ValidateOnLoad="false">
+                    
+                    
+                    <Validation>
+                        <Field>
+                            <FieldLabel>@L["Name"] *</FieldLabel>
+                            <TextEdit @bind-Text="@EditingWard.Name"  >
+                                <Feedback>
+                                    <ValidationError />
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validation>
+
+
+                    <Validation>
+                        <Field>
+                            <FieldLabel>@L["Code"]</FieldLabel>
+                            <TextEdit @bind-Text="@EditingWard.Code"  >
+                                <Feedback>
+                                    <ValidationError />
+                                </Feedback>
+                            </TextEdit>
+                        </Field>
+                    </Validation>
+
+
+                    <Field>
+                        <FieldLabel>@L["District"]</FieldLabel>
+                        <Select TValue="Guid" @bind-SelectedValue="@EditingWard.DistrictId">
+                            @foreach (var district in DistrictsCollection)
+                            {
+                                <SelectItem TValue="Guid" Value="@(district.Id)">
+                                    @(district.DisplayName)
+                                </SelectItem>
+                            }
+                        </Select>
+                    </Field>
+
+
+                    
+                    
+                </Validations>
+            </ModalBody>
+            <ModalFooter>
+                <Button Color="Color.Secondary"
+                        Clicked="CloseEditWardModalAsync">
+                    @L["Cancel"]
+                </Button>
+                <SubmitButton Form="EditWardForm" Clicked="UpdateWardAsync" />
+
+            </ModalFooter>
+        </Form>
+
+    </ModalContent>
+</Modal>
+

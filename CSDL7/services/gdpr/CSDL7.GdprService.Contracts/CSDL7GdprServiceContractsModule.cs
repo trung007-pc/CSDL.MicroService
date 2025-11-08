@@ -12,6 +12,7 @@ using Volo.Abp.Validation;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
 using Volo.Abp.Gdpr;
+using Volo.Abp.Localization.Resources.AbpLocalization;
 
 namespace CSDL7.GdprService;
 
@@ -39,6 +40,8 @@ public class CSDL7GdprServiceContractsModule : AbpModule
                 .Add<GdprServiceResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource), typeof(AbpUiResource))
                 .AddVirtualJson("/Localization/GdprService");
+            
+            options.Languages.Add(new LanguageInfo("vi", "vi", "Vietnamese"));
         });
 
         Configure<AbpExceptionLocalizationOptions>(options =>

@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Options;
 using OpenIddict.Abstractions;
 using OpenIddict.Core;
 using Volo.Abp;
@@ -68,6 +68,8 @@ public class OpenIddictDataSeeder : ITransientDependency
         await CreateScopesAsync("AuthServer");
         await CreateScopesAsync("IdentityService");
         await CreateScopesAsync("AdministrationService");
+        await CreateScopesAsync("EmailService");
+        await CreateScopesAsync("MasterService");
         await CreateScopesAsync("SaasService");
         await CreateScopesAsync("AuditLoggingService");
         await CreateScopesAsync("GdprService");
@@ -84,7 +86,9 @@ public class OpenIddictDataSeeder : ITransientDependency
             "AuditLoggingService",
             "GdprService",
             "LanguageService",
-            "AdministrationService"
+            "AdministrationService",
+            "EmailService",
+            "MasterService"
         });
     }
 
@@ -130,7 +134,9 @@ public class OpenIddictDataSeeder : ITransientDependency
                 $"{auditLoggingServiceServiceRootUrl}/swagger/oauth2-redirect.html",
                 $"{gdprServiceServiceRootUrl}/swagger/oauth2-redirect.html",
                 $"{languageServiceServiceRootUrl}/swagger/oauth2-redirect.html",
-                $"{administrationServiceRootUrl}/swagger/oauth2-redirect.html"
+                $"{administrationServiceRootUrl}/swagger/oauth2-redirect.html",
+                $"{_configuration["OpenIddict:Resources:EmailService:RootUrl"]!.TrimEnd('/')}/swagger/oauth2-redirect.html",
+                $"{_configuration["OpenIddict:Resources:MasterService:RootUrl"]!.TrimEnd('/')}/swagger/oauth2-redirect.html"
             },
             clientUri: webGatewaySwaggerRootUrl,
             logoUri: "/images/clients/swagger.svg"
@@ -186,7 +192,9 @@ public class OpenIddictDataSeeder : ITransientDependency
                 "AuditLoggingService",
                 "GdprService",
                 "LanguageService",
-                "AdministrationService"
+                "AdministrationService",
+                "EmailService",
+                "MasterService"
             }).ToList(),
             redirectUris: new List<string> { $"{blazorServerClientRootUrl}signin-oidc" },
             postLogoutRedirectUris: new List<string> { $"{blazorServerClientRootUrl}signout-callback-oidc" },

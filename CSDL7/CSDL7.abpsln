@@ -12,15 +12,14 @@
     "items": {
       "services": {},
       "apps": {},
-      "gateways": {},
-
+      "gateways": {}
     }
   },
   "defaultRunProfile": "Default",
   "runProfiles": {
     "Default": {
       "path": "etc/abp-studio/run-profiles/Default.abprun.json"
-    },
+    }
   },
   "modules": {
     "CSDL7.AdministrationService": {
@@ -59,12 +58,18 @@
       "path": "gateways/web/CSDL7.WebGateway.abpmdl",
       "folder": "gateways"
     },
+    "CSDL7.MasterService": {
+      "path": "services/master/CSDL7.MasterService.abpmdl",
+      "folder": "services"
+    },
+    "CSDL7.EmailService": {
+      "path": "services/email/CSDL7.EmailService.abpmdl",
+      "folder": "services"
+    }
   },
   "options": {
     "httpRequests": {
-      "ignoredUrls": [
-      
-      ]
+      "ignoredUrls": []
     }
   },
   "creatingStudioConfiguration": {
@@ -87,10 +92,30 @@
     "publicWebsite": "false",
     "optionalModules": "GDPR TextTemplateManagement AuditLogging OpenIddictAdmin",
     "socialLogin": "false",
-    "selectedLanguages": ["English", "Arabic", "Chinese (Simplified)", "Chinese (Traditional)", "Czech", "English (United Kingdom)", "Finnish", "French", "German (Germany)", "Hindi ", "Hungarian", "Icelandic", "Italian", "Portuguese (Brazil)", "Romanian (Romania)", "Russian", "Slovak", "Spanish", "Swedish", "Turkish", ],
+    "selectedLanguages": [
+      "English",
+      "Arabic",
+      "Chinese (Simplified)",
+      "Chinese (Traditional)",
+      "Czech",
+      "English (United Kingdom)",
+      "Finnish",
+      "French",
+      "German (Germany)",
+      "Hindi ",
+      "Hungarian",
+      "Icelandic",
+      "Italian",
+      "Portuguese (Brazil)",
+      "Romanian (Romania)",
+      "Russian",
+      "Slovak",
+      "Spanish",
+      "Swedish",
+      "Turkish"
+    ],
     "aspire": "false",
     "defaultLanguage": "English",
     "createCommand": "abp new CSDL7 -t microservice --ui-framework blazor-server --database-provider ef --database-management-system postgresql --theme leptonx --skip-migrator  --without-cms-kit --dont-run-bundling --no-social-logins -no-file-management -no-language-management"
-   
   }
 }

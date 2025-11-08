@@ -1,4 +1,8 @@
-﻿using Localization.Resources.AbpUi;
+using CSDL7.MasterService.Permissions;
+using CSDL7.MasterService.Localization;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
+using Localization.Resources.AbpUi;
 using Microsoft.Extensions.Options;
 using CSDL7.AdministrationService.Permissions;
 using Volo.Abp.Account.Localization;
@@ -36,14 +40,14 @@ public class CSDL7MenuContributor : IMenuContributor
             await ConfigureUserMenuAsync(context);
         }
     }
-    
+
     private static async Task ConfigureMainMenuAsync(MenuConfigurationContext context)
     {
         var l = context.GetLocalizer<LanguageServiceResource>();
 
         //Home
         context.Menu.AddItem(
-            new ApplicationMenuItem( 
+            new ApplicationMenuItem(
                 CSDL7Menus.Home,
                 l["Menu:Home"],
                 "~/",
@@ -76,17 +80,17 @@ public class CSDL7MenuContributor : IMenuContributor
 
         //Administration
         var administration = context.Menu.GetAdministration();
-        administration.Order = 5;        
-        
+        administration.Order = 5;
+
         //Administration->Saas
         context.Menu.SetSubItemOrder(SaasHostMenus.GroupName, 3);
-        
+
         //Administration->Identity
         administration.SetSubItemOrder(IdentityProMenus.GroupName, 2);
-        
+
         //Administration->OpenIddict
         administration.SetSubItemOrder(OpenIddictProMenus.GroupName, 3);
-        
+
         //Administration->Language Management
         administration.SetSubItemOrder(LanguageManagementMenus.GroupName, 4);
 
@@ -98,6 +102,44 @@ public class CSDL7MenuContributor : IMenuContributor
 
         //Administration->Settings
         administration.SetSubItemOrder(SettingManagementMenus.GroupName, 7);
+
+        // MasterService menu
+        var masterServiceLocalizer = context.GetLocalizer<MasterServiceResource>();
+        context.Menu.AddItem(
+            new ApplicationMenuItem(
+                name: CSDL7Menus.MasterService,
+                displayName: masterServiceLocalizer["Menu:MasterService"],
+                icon: "fa fa-database",
+                order: 10
+            ).AddItem(new ApplicationMenuItem(
+                CSDL7Menus.Departments,
+                context.GetLocalizer<MasterServiceResource>()["Menu:Departments"],
+                url: "/departments",
+                icon: "fa fa-file-alt",
+                requiredPermissionName: MasterServicePermissions.Departments.Default)
+            ).AddItem(
+                new ApplicationMenuItem(
+                    CSDL7Menus.Provinces,
+                    context.GetLocalizer<MasterServiceResource>()["Menu:Provinces"],
+                    url: "/provinces",
+                    icon: "fa fa-file-alt",
+                    requiredPermissionName: MasterServicePermissions.Provinces.Default)
+            ).AddItem(
+                new ApplicationMenuItem(
+                    CSDL7Menus.Districts,
+                    context.GetLocalizer<MasterServiceResource>()["Menu:Districts"],
+                    url: "/districts",
+                    icon: "fa fa-file-alt",
+                    requiredPermissionName: MasterServicePermissions.Districts.Default)
+            ).AddItem(
+                new ApplicationMenuItem(
+                    CSDL7Menus.Wards,
+                    context.GetLocalizer<MasterServiceResource>()["Menu:Wards"],
+                    url: "/wards",
+                    icon: "fa fa-file-alt",
+                    requiredPermissionName: MasterServicePermissions.Wards.Default)
+            )
+        );
     }
 
     private Task ConfigureUserMenuAsync(MenuConfigurationContext context)
@@ -106,7 +148,7 @@ public class CSDL7MenuContributor : IMenuContributor
         var uiResource = context.GetLocalizer<AbpUiResource>();
         var accountResource = context.GetLocalizer<AccountResource>();
 
-        context.Menu.AddItem(new ApplicationMenuItem("Account.Manage", accountResource["MyAccount"], $"{authServerUrl.EnsureEndsWith('/')}Account/Manage", icon: "fa fa-cog", order: 1000,  target: "_blank").RequireAuthenticated());
+        context.Menu.AddItem(new ApplicationMenuItem("Account.Manage", accountResource["MyAccount"], $"{authServerUrl.EnsureEndsWith('/')}Account/Manage", icon: "fa fa-cog", order: 1000, target: "_blank").RequireAuthenticated());
         context.Menu.AddItem(new ApplicationMenuItem("Account.SecurityLogs", accountResource["MySecurityLogs"], $"{authServerUrl.EnsureEndsWith('/')}Account/SecurityLogs", icon: "fa fa-user-shield", target: "_blank").RequireAuthenticated());
         context.Menu.AddItem(new ApplicationMenuItem("Account.Sessions", accountResource["Sessions"], url: $"{authServerUrl.EnsureEndsWith('/')}Account/Sessions", icon: "fa fa-clock", target: "_blank").RequireAuthenticated());
         context.Menu.AddItem(new ApplicationMenuItem("Account.Logout", uiResource["Logout"], url: "~/Account/Logout", icon: "fa fa-power-off", order: int.MaxValue - 1000).RequireAuthenticated());

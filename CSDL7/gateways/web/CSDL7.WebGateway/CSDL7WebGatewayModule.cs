@@ -181,6 +181,8 @@ public class CSDL7WebGatewayModule : AbpModule
 
         options.OAuthClientId(configuration["AuthServer:SwaggerClientId"]);
         options.OAuthScopes(
+            "EmailService",
+            "MasterService",
             "AdministrationService",
             "AuthServer",
             "SaasService",

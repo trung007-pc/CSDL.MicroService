@@ -1,0 +1,10 @@
+{
+  "culture": "vi",
+  "texts": {
+    "Menu:Home": "Trang chủ",
+    "Login": "Đăng nhập",
+    "Menu:Dashboard": "Bảng điều khiển",
+    "LongWelcomeMessage": "Chào mừng bạn đến với ứng dụng. Đây là dự án khởi tạo dựa trên ABP framework. Để biết thêm thông tin vui lòng truy cập",
+    "Welcome": "Chào mừng"
+  }
+}

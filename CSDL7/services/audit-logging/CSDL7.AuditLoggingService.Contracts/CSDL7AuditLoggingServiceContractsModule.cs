@@ -12,6 +12,7 @@ using Volo.Abp.UI;
 using Volo.Abp.Validation;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
+using Volo.Abp.Localization.Resources.AbpLocalization;
 
 namespace CSDL7.AuditLoggingService;
 
@@ -39,6 +40,8 @@ public class CSDL7AuditLoggingServiceContractsModule : AbpModule
                 .Add<AuditLoggingServiceResource>("en")
                 .AddBaseTypes(typeof(AbpValidationResource), typeof(AbpUiResource))
                 .AddVirtualJson("/Localization/AuditLoggingService");
+            
+            options.Languages.Add(new LanguageInfo("vi", "vi", "Vietnamese"));
         });
 
         Configure<AbpExceptionLocalizationOptions>(options =>

@@ -1,0 +1,10 @@
+{
+  "Culture": "en",
+  "Texts": {
+    "Permission:Pings": "Pings",
+    "Permission:EmailService": "Email Service",
+    "Permission:Create": "Create",
+    "Permission:Edit": "Edit",
+    "Permission:Delete": "Delete"
+  }
+}

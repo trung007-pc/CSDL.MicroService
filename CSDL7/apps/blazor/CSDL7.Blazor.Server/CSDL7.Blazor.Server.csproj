@@ -9,7 +9,9 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Blazorise.Bootstrap5" Version="1.8.1" />
+    <PackageReference Include="Blazorise.FluentValidation" Version="1.8.5" />
     <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.8.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="9.0.0" />
     <PackageReference Include="Serilog.Sinks.Async" Version="2.1.0" />
@@ -68,6 +70,8 @@
     <ProjectReference Include="../../../services/saas/CSDL7.SaasService.Contracts/CSDL7.SaasService.Contracts.csproj" />
     <ProjectReference Include="../../../services/identity/CSDL7.IdentityService.Contracts/CSDL7.IdentityService.Contracts.csproj" />
     <ProjectReference Include="../../../services/administration/CSDL7.AdministrationService.Contracts/CSDL7.AdministrationService.Contracts.csproj" />
+    <ProjectReference Include="../../../services/master/CSDL7.MasterService.Contracts/CSDL7.MasterService.Contracts.csproj" />
+    <ProjectReference Include="../../../services/email/CSDL7.EmailService.Contracts/CSDL7.EmailService.Contracts.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Logs\**" />
@@ -80,7 +84,7 @@
     <Content Remove="Localization\CSDL7\*.json" />
   </ItemGroup>
   <ItemGroup>
-      <EmbeddedResource Include="**\*generate-proxy.json"/>
-      <Content Remove="**\*generate-proxy.json"/>
+    <EmbeddedResource Include="**\*generate-proxy.json" />
+    <Content Remove="**\*generate-proxy.json" />
   </ItemGroup>
 </Project>

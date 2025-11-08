@@ -1,0 +1,35 @@
+{
+  "packages": {
+    "CSDL7.EmailService": {
+      "path": "CSDL7.EmailService/CSDL7.EmailService.abppkg"
+    },
+    "CSDL7.EmailService.Tests": {
+      "path": "CSDL7.EmailService.Tests/CSDL7.EmailService.Tests.abppkg"
+    },
+    "CSDL7.EmailService.Contracts": {
+      "path": "CSDL7.EmailService.Contracts/CSDL7.EmailService.Contracts.abppkg"
+    }
+  },
+  "imports": {
+    "Volo.Abp.PermissionManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.FeatureManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.SettingManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.BlobStoring.Database": {
+      "version": "9.3.5",
+      "isInstalled": true
+    },
+    "Volo.Abp.LanguageManagement": {
+      "version": "9.3.5",
+      "isInstalled": true
+    }
+  }
+}

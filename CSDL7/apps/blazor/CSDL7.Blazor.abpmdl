@@ -1,14 +1,14 @@
 {
   "packages": {
     "CSDL7.Blazor.Server": {
-      "path": "CSDL7.Blazor.Server/CSDL7.Blazor.Server.abppkg",
+      "path": "CSDL7.Blazor.Server/CSDL7.Blazor.Server.abppkg"
     }
   },
   "imports": {
-     "Volo.Abp.LeptonXTheme": {
-        "version": "4.3.5",
-        "isInstalled": true
-     },
+    "Volo.Abp.LeptonXTheme": {
+      "version": "4.3.5",
+      "isInstalled": true
+    },
     "Volo.Abp.Account.Pro": {
       "version": "9.3.5",
       "isInstalled": true
@@ -63,6 +63,14 @@
     },
     "Volo.Abp.Identity.Pro": {
       "version": "9.3.5",
+      "isInstalled": true
+    },
+    "CSDL7.MasterService": {
+      "path": "../../services/master/CSDL7.MasterService.abpmdl",
+      "isInstalled": true
+    },
+    "CSDL7.EmailService": {
+      "path": "../../services/email/CSDL7.EmailService.abpmdl",
       "isInstalled": true
     }
   }
